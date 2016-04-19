@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Circles</title>
+	<link rel="stylesheet" type="text/css" href="./circles.css">
+	<script type="text/javascript" src="./circle.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+	<div class="circles">
+		<canvas></canvas>
+		<script type="application/javascript">
+		(function() {
+			var canvasEl = document.getElementsByTagName('canvas')[0];
+			canvasEl.width = window.innerWidth;
+			canvasEl.height = window.innerHeight;
+			var ctx = canvasEl.getContext("2d");
+			var options = {
+				ctx: ctx,
+				pos: [200, 200],
+				radius: 100,
+				color: "#ffffff"
+			}
+			var circle = new Circles.Circle(options);
+			circle.draw();
+			$('canvas').on('click', function(){
+				debugger;
+				var options = {
+					ctx: canvasEl.getContext("2d"),
+					pos: [event.clientX, event.clientY],
+					radius: 50,
+					color: '#fff000'
+				};
+				var newCircle = new Circles.Circle(options);
+				newCircle.draw();
+			});
+
+		})();
+		</script>
+	
+	</div>
+
+</body>
+</html>
